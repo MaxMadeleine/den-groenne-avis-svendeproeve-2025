@@ -8,7 +8,7 @@ export const getRecords = async (req: Request, res: Response) => {
     const data = await prisma.comment.findMany({
       where: {
         product: {
-          id: Number(productId) 
+          slug: String(productId) 
         }
       },
       select: {

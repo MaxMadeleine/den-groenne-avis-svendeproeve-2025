@@ -16,6 +16,7 @@ export const fieldTypes: Record<string, Record<string, 'string' | 'number' | 'bo
   category: {
     id: 'number',
     name: 'string',
+    image: 'string',
     slug: 'string'
   },
   comment: {

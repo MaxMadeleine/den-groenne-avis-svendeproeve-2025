@@ -49,6 +49,14 @@ export const getRecord = async (req: Request, res: Response) => {
   try {
     const data = await prisma.product.findFirst({
       where: { slug: slug },
+      include: {
+        category: {
+          select: {
+            name: true, 
+            slug: true
+          }
+        }
+      }
     });
     if (!data) res.status(404).json({ error: 'Product not found' });
     res.json(data);
