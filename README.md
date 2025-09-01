@@ -1,28 +1,61 @@
-# Den grønne avis
-## Svendeprøve-prøve August 2025
-Front- og backend til svendeprøve-prøve Den grønne avis, August 2025
+# API til Den grønne avis
 
-# Backend
+Et starterprojekt med **Node.js**, **TypeScript**, **Express 5**, og **Prisma ORM**. Perfekt som udgangspunkt for REST API'er med moderne værktøjer og datamodellering.
 
-* **Formål:** Pre-installeret REST API.
-* **Stack:** Node.js, Express, TypeScript, Prisma.
-* **Database:** MySQL (kræver `DATABASE_URL` i `.env`).
-* **Struktur:** `src/` (routes, controllers, middleware), `prisma/` (schema & migrations).
-* **Kom i gang:**
+---
 
-  1. `npm install`
-  2. Opret `.env` med `DATABASE_URL=...`
-  3. (Første gang) `npx prisma migrate dev`
-  4. `npm run dev` for at starte API’et
+## 🛠 Teknologier
 
-# Frontend
+- [TypeScript](https://www.typescriptlang.org/)
+- [Express 5](https://expressjs.com/)
+- [Prisma ORM](https://www.prisma.io/)
+- [TSX](https://github.com/esbuild-kit/tsx)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
 
-* **Formål:** Her bygger eleverne hele frontend-projektet.
-* **Stack:** React + Vite.
-* **API-adresse (valgfrit):** Sæt `VITE_API_URL` i `.env` hvis UI’et skal pege på en anden backend-URL.
-* **Kom i gang:**
+---
 
-  1. `npm install`
-  2. `npm run dev` for at starte Vite-udviklerserveren
+## Kom i gang
 
-> Tip: Kør backend først, så frontend kan hente data fra API’et.
+### 1. Klon repo og installér afhængigheder
+
+```bash
+git clone https://github.com/dit-brugernavn/api-template.git
+cd api-template
+npm install
+```
+### 2. Opret .env-fil ud fra det vedlagte eksempel
+
+```bash
+cp .env.example .env
+```
+### 3. Indsæt dine database oplysninger
+I .env fil er der er en DATABASE variabel med en connection string, som er en url. Udskift de enkelte elementer i denne med dine egne oplysninger.
+```bash
+DATABASE_URL="mysql://[dbuser]:[dbpassword]@[dbhost]:[dbport]/[dbname]"
+```
+*Husk også at fjerne klammerne ([]).*
+
+### 3.1 Initialiser database med fulde rettigheder
+Denne kommando kører med Prisma Migrate og kræver at du har fuld rettighed til din MySQL database. Dette kan typisk bruges hvis du kører med en lokal database.
+
+```bash
+npm run init
+```
+Denne kommando:
+- Kører `prisma migrate dev`
+- Seeder databasen via `prisma/seed.ts`
+
+### 3.2 Initialiser database med begrænsede rettigheder
+Hvis du kun har rettigheder til at administrere tabeller skal du bruge følgende kommando for at oprette tabeller og data.
+
+Denne model skal typisk bruges hvis du kører med en online database.
+```bash
+npm run push
+```
+Denne kommando pusher dine datamodeller til databasen og seeder tabellerne med data fra csv
+
+### 4. Start serveren
+```bash
+npm run dev
+```
