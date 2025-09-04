@@ -12,7 +12,10 @@ export const getRecords = async (req: Request, res: Response) => {
         }
       },
       select: {
+        // id på kommentaren og user id til kommenatren
+        id: true,
         comment: true,
+        userId: true,
         user: {
           select: {
             firstname: true,
@@ -20,12 +23,12 @@ export const getRecords = async (req: Request, res: Response) => {
             email: true,
           }
         }
-      },
+      }
     });
     res.json(data);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to fetch categories' });
+    res.status(500).json({ error: 'Failed to fetch comments' });
   }
 };
 

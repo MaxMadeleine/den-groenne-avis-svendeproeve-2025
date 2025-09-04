@@ -50,6 +50,7 @@ export const createRecord = async (req: Request, res: Response) => {
 
   if (!email || !password) {
     res.status(400).json({ error: 'Email and password are required' });
+    return;
   }
 
   try {
