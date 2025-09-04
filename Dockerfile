@@ -11,6 +11,7 @@ COPY . .
 RUN npm install --omit=dev
 
 # Apply Prisma migrations and seed the database
+RUN echo "DATABASE_URL: $DATABASE_URL"
 RUN npx prisma migrate deploy
 RUN npx prisma db seed
 
