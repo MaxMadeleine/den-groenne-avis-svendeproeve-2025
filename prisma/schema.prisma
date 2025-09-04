@@ -24,7 +24,7 @@ model User {
   password        String
   hasNewsletter   Boolean   @default(false) // -> Bool med default true
   hasNotification Boolean   @default(false) // -> Bool med default true
-  refreshToken    String
+  refreshToken    String?   @unique
   isActive        Boolean   @default(true) // -> Bool med default true
   products        Product[]
   Comment         Comment[]
@@ -36,7 +36,7 @@ model Category {
   id       Int       @id @default(autoincrement())
   name     String
   image    String   @default("Untitled")
-  slug     String
+  slug     String   @unique
   products Product[]
 
   @@map("categories")
@@ -60,7 +60,7 @@ model Product {
   image       String
   description String  @db.Text // -> Lang tekst
   price       Decimal @db.Decimal(10, 2) // -> Decimaltal til pris
-  slug        String
+  slug        String  @unique
   categoryId  Int
   userId      Int
 

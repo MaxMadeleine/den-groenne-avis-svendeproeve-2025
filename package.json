@@ -21,11 +21,11 @@
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "csv-parse": "^5.6.0",
-    "docker": "^0.2.14",
     "express": "^5.1.0",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "tsx": "^4.20.3"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -38,7 +38,6 @@
     "@types/node": "^24.0.3",
     "dotenv": "^16.6.1",
     "prisma": "^6.11.0",
-    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
 }
