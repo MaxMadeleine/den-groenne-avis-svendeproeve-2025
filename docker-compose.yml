@@ -17,7 +17,7 @@ services:
       - db
     environment:
       DATABASE_URL: "mysql://root:root@db:3306/dga"
-    command: sh -c "npx prisma migrate deploy && npx prisma db seed && tsx src/index.ts"
+    command: sh -c "npx prisma migrate deploy && npx prisma db seed && npx tsx src/index.ts"
 
 volumes:
   db_data:

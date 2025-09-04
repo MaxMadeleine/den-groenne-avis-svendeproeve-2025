@@ -12,4 +12,4 @@ RUN npm install --omit=dev
 
 EXPOSE 3000
 
-CMD ["tsx", "src/index.ts"]
+CMD ["npx", "tsx", "src/index.ts"]
