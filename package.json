@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx --watch src/index.ts",
+    "start": "tsx src/index.ts",
     "init": "prisma migrate dev && prisma db seed",
     "push": "prisma db push && prisma db seed",
     "prepare": "prisma generate",
