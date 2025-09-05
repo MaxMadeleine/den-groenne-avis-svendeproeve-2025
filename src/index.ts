@@ -21,7 +21,10 @@ const app = express();
 app.use('/assets', express.static(path.join(__dirname, '../assets')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-app.use(cors())
+app.use(cors({
+  origin: 'https://den-groenne-avis-frontend.vercel.app',
+  credentials: true
+}));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
